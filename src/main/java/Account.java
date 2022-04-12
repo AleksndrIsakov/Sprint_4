@@ -19,8 +19,8 @@ public class Account {
 
         int spaces = (int) name.chars().filter(c -> c == ' ').count();
         if (name.length() >= 3 && name.length() <= 19) {
-            if (spaces == 1 && !name.startsWith(" ") && !name.endsWith(" "))
-                return true;
+            if (spaces == 1 && !(name.startsWith(" ") || name.endsWith(" ")))
+                    return true;
         }
 
         return false;
