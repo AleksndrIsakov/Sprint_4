@@ -1,3 +1,5 @@
+import static java.util.Objects.isNull;
+
 public class Account {
 
     private final String name;
@@ -17,16 +19,17 @@ public class Account {
                 пробел стоит не в начале и не в конце строки.
          */
 
-        int spaces = (int) name.chars().filter(c -> c == ' ').count();
-        if (name.length() >= 3 && name.length() <= 19) {
-            if (spaces == 1 && !(name.startsWith(" ") || name.endsWith(" ")))
-                    return true;
-        }
+        // Замечание: Добавить проверку на null
+        if (isNull(name)) return false;
+
+        // Замечание: Заменить на регулярные выражения
+        if (name.matches("^(?=.{3,19}$)(\\S+ \\S+)$")) return true;
 
         return false;
     }
 
     public String getName() {
+        if (isNull(name)) return "null";
         return name;
     }
 }

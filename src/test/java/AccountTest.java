@@ -27,11 +27,14 @@ public class AccountTest {
         return new Object[][]{
                 {"Maxim Maximiliyanov", true},
                 {"I M", true},
+                {"Иван Иванов", true}, // Среднее тривиальное
                 {"Aleksy Maximiliyanov", false},
                 {"IM", false},
                 {"Иван  Иванов", false},
                 {" IvanovMaxim", false},
                 {"IvanovMaxim ", false},
+                {"", false},  // Добавлена пустая строка
+                {null, false} // Добавлено значение null
         };
     }
 
